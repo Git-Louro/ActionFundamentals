@@ -46,6 +46,7 @@ jobs:
     steps:
       - run: |
           echo "🧪 Testing..."
+          echo "The repository github.event.inputs.environment"
           sleep 15
 
   Production:
@@ -54,7 +55,7 @@ jobs:
     environment:
       name: Production
       url: https://writeabout.net
-    
+    if: github.event.inputs.environment == 'Production'
     steps:
       - run: |
           echo "🚀 Step 1..."
